@@ -9,6 +9,15 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">FLIO</a>
+        <form class="d-flex" role="search">
+          <a href="https://thewebsite2023.github.io/" class="btn btn-primary">Về trang chủ</a>
+        </form>
+      </div>
+    </div>
+  </nav>
     <div class="container">
         <h1>Hệ thống tra cứu mã lỗi và cách xử lý</h1>
         <input type="text" id="searchInput" placeholder="Nhập mã lỗi" onkeyup="searchCandidates()">
@@ -79,7 +88,7 @@ tr:hover {
 const candidates = [
     {id:'1427', title: 'Lỗi đăng nhập', content: 'Nếu bạn thấy thông báo "Phiên đăng nhập đã hết hạn.Vui lòng đăng nhập lại" thì hãy thử đăng nhập lại. Nếu tình trạng này vẫn xảy ra, hãy liên hệ với quản trị viên'},
     {id:'2146', title: 'Lỗi bài thi', content: 'Nếu bạn thấy thông báo "Đề thi không hợp lệ hoặc đã bị đóng" hãy thử đăng xuất tài khoản và đăng nhập lại'},
-  {id:'9302', title: 'Lỗi tra cứu thí sinh', content: ''},
+  {id:'9302', title: 'Lỗi tra cứu thí sinh', content: 'Khi tra cứu đúng thông tin mà hệ thống báo "Không tìm thấy thí sinh", hãy thử đóng trình duyệt và mở lại'},
 ];
 
 // Hàm để hiển thị danh sách thí sinh
@@ -89,6 +98,7 @@ function displayCandidates() {
 
     candidates.forEach(candidate => {
         let row = `<tr>
+        <td>${candidate.id}</td>
             <td>${candidate.title}</td>
             <td>${candidate.content}</td>
         </tr>`;
@@ -106,6 +116,7 @@ function searchCandidates() {
         // Kiểm tra nếu tên hoặc mã thí sinh khớp với từ khóa tìm kiếm
         if (candidate.id.toLowerCase().includes(input)) {
             let row = `<tr>
+              <td>${candidate.id}</td>
             <td>${candidate.title}</td>
             <td>${candidate.content}</td>
             </tr>`;
